@@ -1,0 +1,35 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>HomeProfile</h1>
+       {{> loginButtons}}
+    </header>
+    {{#if currentUser}}
+        <ul>
+          {{#each lights}}
+            {{> task}}
+          {{/each}}
+        </ul>
+    {{else}}
+        <p>You must be logged-in to see this content.</p>
+    {{/if}}
+  </div>
+</body>
+ 
+<template name="task">
+  <li>{{text}}
+{{#if working}}
+  {{> switchon}}
+{{else}}
+  {{> switchoff}}
+{{/if}}
+  </li>
+</template>
+
+<template name="switchon">
+<img src="images/onbulb.jpeg" alt="OffLight" style="width:25px;height:35px;">
+</template>
+
+<template name="switchoff">
+<img src="images/offbulb.jpeg" alt="OffLight" style="width:25px;height:35px;">
+</template>
